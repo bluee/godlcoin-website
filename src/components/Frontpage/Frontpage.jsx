@@ -603,7 +603,7 @@ class Frontpage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12">
-              <div className="copyright">© 2021 - HODL the GODL </div>
+              <div className="copyright"><a href="/tracker">© 2021 - HODL the GODL</a></div>
             </div>
             <div className="col-lg-3 col-md-6">
               <ul className="footer-menu">

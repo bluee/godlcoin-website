@@ -1,0 +1,76 @@
+#tracker-container b {
+    color:rgba(83,172,207,0.7);
+}
+#tracker-container button {
+    margin:1px;
+    padding:7px;
+    border-radius:7px;
+    border:1px solid pink;
+    background:rgba(83,172,207,0.7);
+}
+#tracker-container span {
+    display:inline-block;
+    width:25%;
+    text-align: right;
+}
+#tracker-container input {
+    padding:7px;
+    margin:3px;
+    border:1px solid pink;
+}
+#tracker-container hr {
+    border-top:1px solid rgba(83,172,207,0.7);
+}
+#tracker-container em {
+    padding:3px;
+}
+#tracker-container .App {
+    margin:20px;
+    border-radius:7px;
+    border:10px solid rgba(241,162,58,0.9);
+    font-size:14px;
+}
+#tracker-container .heading {
+    padding:7px;
+    margin:3px;
+    display:block;
+    text-align:center;
+}
+#tracker-container .center {
+    border:1px solid pink;
+    border-radius:3px;
+    padding:7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:5vh;
+}
+#totalDividends {
+    padding:15px;
+    text-align: center;
+}
+#dividendInformation {
+    padding:3px;
+}
+#tracker-container {
+    padding:15px;
+    background:white;
+    border-radius: 25px;
+}
+#top {
+    border-radius:3px;
+    padding:7px;
+    background:white;
+    font-size:14px;
+    border:1px solid pink;
+}
+#logo {
+    margin:2px;
+    float:left;
+    display: flex;
+    width: 24px;
+}
+#address-form {
+    text-align: center;
+}

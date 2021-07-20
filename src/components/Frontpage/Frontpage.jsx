@@ -45,7 +45,9 @@ class Frontpage extends Component {
                               <a href="https://www.dropbox.com/s/6pmqijucy721vo5/godl-whitepaper.pdf" className="btn btn--medium btn--white">Whitepaper</a>
   
                               <a href="https://www.dextools.io/app/uniswap/pair-explorer/0x4aedd28e59cdb3043e269f1d51cbdddf23be56bb" className="btn btn--medium btn--blue">Live Chart</a>
-  
+
+                              <a href="/#/tracker" className="btn btn--medium btn--gold">View Earnings</a>
+
                           </div>
                       </div>
                   </div>
@@ -603,7 +605,7 @@ class Frontpage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12">
-              <div className="copyright"><a href="/tracker">© 2021 - HODL the GODL</a></div>
+              <div className="copyright">© 2021 - HODL the GODL</div>
             </div>
             <div className="col-lg-3 col-md-6">
               <ul className="footer-menu">

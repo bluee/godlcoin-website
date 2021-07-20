@@ -4322,11 +4322,19 @@ section {
 }
 
 .btn--blue:hover {
-  background-color: #333;
   color: #fff;
   -webkit-box-shadow: 0 3px 32px rgba(16,203,188,.54);
   box-shadow: 0 3px 32px rgba(16,203,188,.54);
   background-color: #2ddfd1
+}
+
+.btn--gold {
+  background-color: gold;
+  color: #333
+}
+
+.btn--gold:hover {
+  background-color: #ed824e;
 }
 
 .text-margin-bot {

@@ -29,8 +29,6 @@ class Frontpage extends Component {
     return (
       <div className="wrapper">
       
-    
-  
       <section className="first-screen section section--no-pad-top" style={{backgroundImage: 'url(img/main_bg.png'}} id="main">
         <div className="container">
           <div className="row">
@@ -100,25 +98,25 @@ class Frontpage extends Component {
             <div className="col">
               <div className="partners-logo__block" data-aos="fade-up">
                               <div className="partners-logo__item">
-                                  <a href="https://coinmarketcap.com/currencies/godl/" target="_blank">
+                                  <a href="https://coinmarketcap.com/currencies/godl/" target="_blank" rel="noreferrer">
                     <img src="img/cmc-logo.png" alt="CoinMarketCap logo" />
                   </a>
                 </div>
   
                               <div className="partners-logo__item">
-                                  <a href="https://app.uniswap.org/#/swap?outputCurrency=0x7f509465C38B66BDeCEC2CfDc842e11809CC8357" target="_blank">
+                                  <a href="https://app.uniswap.org/#/swap?outputCurrency=0x7f509465C38B66BDeCEC2CfDc842e11809CC8357" target="_blank" rel="noreferrer">
                                       <img src="img/uniswap-logo.png" alt="Uniswap logo" />
                                   </a>
                               </div>
   
                               <div className="partners-logo__item">
-                                  <a href="https://etherscan.io/token/0x7f509465c38b66bdecec2cfdc842e11809cc8357" target="_blank" >
+                                  <a href="https://etherscan.io/token/0x7f509465c38b66bdecec2cfdc842e11809cc8357" target="_blank" rel="noreferrer">
                                       <img src="img/etherscan-logo.png" alt="Etherscan logo" />
                                   </a>
                               </div>
   
                               <div className="partners-logo__item">
-                                  <a href="https://www.coingecko.com/en/coins/godl" target="_blank">
+                                  <a href="https://www.coingecko.com/en/coins/godl" target="_blank" rel="noreferrer">
                                       <img src="img/coingecko-logo.png" alt="CoinGecko logo" /> 
                                   </a>
                               </div>
@@ -240,7 +238,7 @@ class Frontpage extends Component {
                 <div className="service-item__title">Open Source Test Cases</div>
                 <p>
                                   In addition to the audit, our team has provided test cases with 95% coverage{' '}
-                                  <a href="https://github.com/godlcoin/godlcoin-contract" target="_blank">in GitHub</a>{' '}
+                                  <a href="https://github.com/godlcoin/godlcoin-contract" target="_blank" rel="noreferrer">in GitHub</a>{' '}
                                   to make it convenient for third-parties to verify and reproduce the contract logic.
                 </p>
               </div>
@@ -253,7 +251,7 @@ class Frontpage extends Component {
                 <div className="service-item__title">Anti-Bot</div>
                 <p>
                                   We have integrated with the Fair Token Project&apos;s{' '}
-                                  <a href="https://antibot.fairtokenproject.com/" target="_blank">AntiBot library</a> to ban
+                                  <a href="https://antibot.fairtokenproject.com/" target="_blank" rel="noreferrer">AntiBot library</a> to ban
                                   bot activity (such as front-running) in our token.
                 </p>
               </div>
@@ -407,7 +405,7 @@ class Frontpage extends Component {
                 <div className="process-item__title">Step 1:<p>Buy ETH</p></div>
                               <p>
                                   The easiest way to buy ETH this is through a centralized exchange (CEX) like{' '}
-                                  <a href="https://www.binance.com/en" target="_blank">Binance</a> or <a href="https://www.coinbase.com/" target="_blank">Coinbase.</a>
+                                  <a href="https://www.binance.com/en" target="_blank" rel="noreferrer">Binance</a> or <a href="https://www.coinbase.com/" target="_blank" rel="noreferrer">Coinbase.</a>
                               </p>
                 <div className="process-item__arrow" style={{ backgroundColor: '#16bf86' }}><img src="img/arrow.png" alt="" /></div>
               </div>
@@ -417,7 +415,7 @@ class Frontpage extends Component {
                 <div className="process-item__icon"><img src="img/pr-icon-2.svg" alt="" /></div>
                 <div className="process-item__title">Step 2:<p>Install a wallet</p></div>
                 <p>
-                                  The commonly used wallet is a Chrome extension called <a href="http://metamask.io" target="_blank">Metamask</a>.
+                                  The commonly used wallet is a Chrome extension called <a href="http://metamask.io" target="_blank" rel="noreferrer">Metamask</a>.
                                   DO NOT share your private keys!
                               </p>
                 <div className="process-item__arrow" style={{ backgroundColor: '#5775cf' }}><img src="img/arrow.png" alt="" /></div>
@@ -438,7 +436,7 @@ class Frontpage extends Component {
                 <div className="process-item__icon"><img src="img/pr-icon-4.svg" alt="" /></div>
                 <div className="process-item__title">Step 4:<p>Buy in Uniswap</p></div>
                 <p>
-                                  You may now swap your ETH for some GODL in <a href="https://app.uniswap.org/#/swap?outputCurrency=0x7f509465C38B66BDeCEC2CfDc842e11809CC8357" target="_blank">Uniswap</a>.
+                                  You may now swap your ETH for some GODL in <a href="https://app.uniswap.org/#/swap?outputCurrency=0x7f509465C38B66BDeCEC2CfDc842e11809CC8357" target="_blank" rel="noreferrer">Uniswap</a>.
                                   You will usually need to adjust the slippage to 5-10%.
                               </p>
               </div>
@@ -462,16 +460,16 @@ class Frontpage extends Component {
   
                           <div className="data-progress" data-aos="fade-up">
                               <div className="data-progress__item" style={{ boxShadow: '0 0 15px #f2718b', backgroundColor: '#f2718b', width: '10%' }}>
-                                  <p><span>5%</span> - <a href="https://etherscan.io/address/0x94dcbf0a400c9536343a73bf8bcbd6d8c2290f79" target="_blank">Team</a></p>
+                                  <p><span>5%</span> - <a href="https://etherscan.io/address/0x94dcbf0a400c9536343a73bf8bcbd6d8c2290f79" target="_blank" rel="noreferrer">Team</a></p>
                               </div>
                               <div className="data-progress__item" style={{ boxShadow: '0 0 15px #ff903e', backgroundColor: '#ff903e', width: '20%' }}>
-                                  <p><span>13.33%</span> - <a href="https://etherscan.io/address/0x1dad736b39462dd297453b31aecf0819c1fd4558" target="_blank">Private sale</a></p>
+                                  <p><span>13.33%</span> - <a href="https://etherscan.io/address/0x1dad736b39462dd297453b31aecf0819c1fd4558" target="_blank" rel="noreferrer">Private sale</a></p>
                               </div>
                               <div className="data-progress__item" style={{ boxShadow: '0 0 15px #16bf86', backgroundColor: '#16bf86',  width: '60%' }}>
                                   <p><span>76.67%</span> - Public sale</p>
                               </div>
                               <div className="data-progress__item" style={{ boxShadow:' 0 0 15px #e8903e',  backgroundColor: '#e8903e', width: '10%' }}>
-                                  <p><span>5%</span> - <a href="https://etherscan.io/address/0xefdeca2bc174118832279ea72254fc5e2c0c5117" target="_blank">Marketing</a> &amp; <a href="https://etherscan.io/address/0xe950617d54486a3b9e792f9018908d05c9f88ed4" target="_blank">Partners</a></p>
+                                  <p><span>5%</span> - <a href="https://etherscan.io/address/0xefdeca2bc174118832279ea72254fc5e2c0c5117" target="_blank" rel="noreferrer">Marketing</a> &amp; <a href="https://etherscan.io/address/0xe950617d54486a3b9e792f9018908d05c9f88ed4" target="_blank" rel="noreferrer">Partners</a></p>
                               </div>
                           </div>
   
@@ -491,7 +489,7 @@ class Frontpage extends Component {
                               </li>
                               <li>
                                   <b>Contract Address:</b>
-                                  <a href="https://etherscan.io/token/0x7f509465c38b66bdecec2cfdc842e11809cc8357" target="_blank">0x7f509465c38b66bdecec2cfdc842e11809cc8357</a>
+                                  <a href="https://etherscan.io/token/0x7f509465c38b66bdecec2cfdc842e11809cc8357" target="_blank" rel="noreferrer">0x7f509465c38b66bdecec2cfdc842e11809cc8357</a>
                               </li>
                               <li>
                                   <b>Total supply:</b>
@@ -554,22 +552,22 @@ class Frontpage extends Component {
   
                           <ul className="accordion">
                               <li>
-                                  <a className={this.state.indexActive == 1 ? 'active' : ''} onClick={ () => this.toggle(1)} >What is the use case of GODL?</a>
-                                  <p style={{display: this.state.indexActive == 1  && 'block'}}>
+                                  <a href="#1" className={this.state.indexActive === 1 ? 'active' : ''} onClick={ () => this.toggle(1)} >What is the use case of GODL?</a>
+                                  <p style={{display: this.state.indexActive === 1  && 'block'}}>
                                       Nothing really other than to receive ETH rewards. We do not want to be another project that
                                       creates another crypto wallet, another charting tool, donates to charity, etc.
                                   </p>
                               </li>
                               <li>
-                                  <a className={this.state.indexActive == 2 ? 'active' : ''} onClick={()=>this.toggle(2)}  >Is GODL a TIKI fork?</a>
-                                  <p style={{display: this.state.indexActive == 2  && 'block'}}>
+                                  <a href="#2" className={this.state.indexActive === 2 ? 'active' : ''} onClick={()=>this.toggle(2)}  >Is GODL a TIKI fork?</a>
+                                  <p style={{display: this.state.indexActive === 2  && 'block'}}>
                                       Yes. GODL was based on TIKI. The major differences are: 1.) GODL runs on Ethereum instead of BSC
                                       2.) GODL redistributes ETH rewards instead of BNB and 3.) some aspects of the tokenomics were changed.
                                   </p>
                               </li>
                               <li>
-                                  <a className={this.state.indexActive == 3 ? 'active' : ''} onClick={()=>this.toggle(3)} >Why is the rewards tax lower than TIKI&apos;s?</a>
-                                  <p style={{display: this.state.indexActive == 3  && 'block'}}>
+                                  <a href="#3" className={this.state.indexActive === 3 ? 'active' : ''} onClick={()=>this.toggle(3)} >Why is the rewards tax lower than TIKI&apos;s?</a>
+                                  <p style={{display: this.state.indexActive === 3  && 'block'}}>
                                       TIKI&apos;s transaction fee consists of a 10% rewards tax, 5% liquidity tax, and a 3% sell tax. This means
                                       that the coin price needs to increase by 33 percentage points just for a new buyer to breakeven! This
                                       discourages a lot of buyers therefore reducing the trading volume drastically. Since the ETH rewards
@@ -578,16 +576,16 @@ class Frontpage extends Component {
                                   </p>
                               </li>
                               <li>
-                                <a className={this.state.indexActive == 4 ? 'active' : ''} onClick={()=>this.toggle(4)} >Who is the 0x...488d wallet that keeps on selling?</a>
-                                <p style={{display: this.state.indexActive == 4  && 'block'}}>
+                                <a href="#4" className={this.state.indexActive === 4 ? 'active' : ''} onClick={()=>this.toggle(4)} >Who is the 0x...488d wallet that keeps on selling?</a>
+                                <p style={{display: this.state.indexActive === 4  && 'block'}}>
                                                     Do not panic. This is address is commonly known as the Uniswap router. The contract is programmed to sell GODL
                                   after it accumulates past a certain threshold in order to procure the ETH rewards. Without this selling,
                                   there would be no ETH rewards and that would be sad.
                                 </p>
                               </li>
                             <li>
-                              <a className={this.state.indexActive == 5 ? 'active' : ''} onClick={()=>this.toggle(5)} >Why have I not received my ETH yet despite being eligible for rewards?</a>
-                              <p style={{display: this.state.indexActive == 5  && 'block'}}>
+                              <a href="#5" className={this.state.indexActive === 5 ? 'active' : ''} onClick={()=>this.toggle(5)} >Why have I not received my ETH yet despite being eligible for rewards?</a>
+                              <p style={{display: this.state.indexActive === 5  && 'block'}}>
                                 This is because the contract has not delivered your rewards yet. The contract delivers rewards to eligible holders
                                 in a round-robin fashion. It works by charging an extra amount of gas for each transaction in order
                                 to distribute the rewards of those next in line in the round-robin. However, as you may have deduced, this distribution
@@ -595,7 +593,7 @@ class Frontpage extends Component {
                                 deliver to fewer addresses. Do not fret because your rewards will keep on accumulating until it gets delivered so
                                 just be patient and HODL that GODL!
                               </p>
-                              <p style={{display: this.state.indexActive == 5  && 'block'}}>
+                              <p style={{display: this.state.indexActive === 5  && 'block'}}>
                               NOTE: Manual claiming of rewards is also possible but gas fees will be shouldered by the claimant.
                             </p>
                         </li>
@@ -646,18 +644,18 @@ class Frontpage extends Component {
                 </div>
                 <ul className="social-list">
                   <li className="social-list__item">
-                    <a href="https://twitter.com/GodlCoinETH" target="_blank" className="social-list__link">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                    <a href="https://twitter.com/GodlCoinETH" target="_blank" rel="noreferrer" className="social-list__link">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" className="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
                     </a>
                   </li>
                   <li className="social-list__item">
-                    <a href="https://t.me/GodlCoin" target="_blank" className="social-list__link">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram" class="svg-inline--fa fa-telegram fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"></path></svg>
+                    <a href="https://t.me/GodlCoin" target="_blank" rel="noreferrer" className="social-list__link">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram" className="svg-inline--fa fa-telegram fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"></path></svg>
                     </a>
                   </li>
                   <li className="social-list__item">
-                      <a href="https://godlcoin.medium.com/" target="_blank" className="social-list__link">
-                        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="medium-m" class="svg-inline--fa fa-medium-m fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M71.5 142.3c.6-5.9-1.7-11.8-6.1-15.8L20.3 72.1V64h140.2l108.4 237.7L364.2 64h133.7v8.1l-38.6 37c-3.3 2.5-5 6.7-4.3 10.8v272c-.7 4.1 1 8.3 4.3 10.8l37.7 37v8.1H307.3v-8.1l39.1-37.9c3.8-3.8 3.8-5 3.8-10.8V171.2L241.5 447.1h-14.7L100.4 171.2v184.9c-1.1 7.8 1.5 15.6 7 21.2l50.8 61.6v8.1h-144v-8L65 377.3c5.4-5.6 7.9-13.5 6.5-21.2V142.3z"></path></svg>                      
+                      <a href="https://godlcoin.medium.com/" target="_blank" rel="noreferrer" className="social-list__link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="medium-m" className="svg-inline--fa fa-medium-m fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M71.5 142.3c.6-5.9-1.7-11.8-6.1-15.8L20.3 72.1V64h140.2l108.4 237.7L364.2 64h133.7v8.1l-38.6 37c-3.3 2.5-5 6.7-4.3 10.8v272c-.7 4.1 1 8.3 4.3 10.8l37.7 37v8.1H307.3v-8.1l39.1-37.9c3.8-3.8 3.8-5 3.8-10.8V171.2L241.5 447.1h-14.7L100.4 171.2v184.9c-1.1 7.8 1.5 15.6 7 21.2l50.8 61.6v8.1h-144v-8L65 377.3c5.4-5.6 7.9-13.5 6.5-21.2V142.3z"></path></svg>                      
                       </a>
                   </li>
                 </ul>

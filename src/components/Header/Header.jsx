@@ -1,5 +1,4 @@
 import React, { Component }  from "react";
-import { Container, Grid, Icon} from "semantic-ui-react";
 import "./header.css";
 import { Link } from 'react-scroll';
 
@@ -41,10 +40,10 @@ class Header extends Component {
   return (
       <React.Fragment>
       <header id="header" className={this.state.sticky ? 'sticky header' : 'header'} >
-        <a href="#" className="logo">
+        <Link href="#home" className="logo" to="root" spy={true} smooth={true} duration={1000}>          
           <div className="logo__img"></div>
           <div className="logo__title">GODL Coin</div>
-        </a>
+        </Link>
   
         <ul className="menu">
           <li className="menu__item">
@@ -90,7 +89,7 @@ class Header extends Component {
         </ul>
   
         <div className="header__right">
-          <a href="https://t.me/GodlCoin" target="_blank" className="telegram-link">
+          <a href="https://t.me/GodlCoin" target="_blank" rel="noreferrer" className="telegram-link">
             <img src="img/telegram-link.png" alt="Telegram logo" />
           </a>
   
@@ -115,10 +114,10 @@ class Header extends Component {
 
       <div className={this.state.fixedMenu ? 'fixed-menu open' : 'fixed-menu'}>
         <div className="fixed-menu__header">
-          <a href="#" className="logo logo--color">
+          <Link href="#home" className="logo logo--color" to="root" spy={true} smooth={true} duration={1000}>          
             <div className="logo__img"></div>
             <div className="logo__title">GODL Coin</div>
-          </a>
+          </Link>
     
 
           <div className="btn-close" onClick={()=>this.fixedMenu()}>

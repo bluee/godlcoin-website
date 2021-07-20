@@ -25,7 +25,7 @@ const PrintGlobalDividends = ({data}) => (
 const PrintAddress = ({data}) => (
     <div>
         <b>Address: </b>
-        <a href={"https://etherscan.io/address/" + data} target="_blank">{data.length == 42 ? shortenAddress(data) : ''}</a>
+        <a href={"https://etherscan.io/address/" + data} target="_blank" rel="noreferrer">{data.length === 42 ? shortenAddress(data) : ''}</a>
     </div>
 );
 
@@ -80,9 +80,6 @@ const GodlDapp = () => {
 
     const errorMessage = "No connection to the network.";
 
-    const [walletAddress, setWallet] = useState(""); // default?
-    const [address, setAddress] = useState("");
-    const [status, setStatus] = useState("");
     const [symbol, setSymbol] = useState(errorMessage);
     const [totalDividendsDistributed, setTotalDividendsDistributed] = useState(errorMessage);
     const [accountDividendsInfo, setAccountDividendsInfo] = useState(errorMessage);
@@ -91,31 +88,29 @@ const GodlDapp = () => {
     const [currentTokenPrice, setCurrentTokenPrice] = useState(errorMessage);
     const [addressBalance, setAddressBalance] = useState(errorMessage);
     const [info, setInfo] = useState("");
-    const [index, setIndex] = useState("");
 
-    useEffect(async () => {
+    useEffect(() => {
+        async function init() {
+            const {address} = await getCurrentWalletConnected();
 
-        const {address, status} = await getCurrentWalletConnected();
+            const symbol = await getSymbol();
+            setSymbol(symbol);
 
-        setWallet(address)
-        setStatus(status);
+            const currentTokenPrice = await getCurrentTokenPrice();
+            setCurrentTokenPrice(currentTokenPrice.godl.usd);
 
-        const symbol = await getSymbol();
-        setSymbol(symbol);
+            const lastProcessedIndex = await getLastProcessedIndex();
+            setLastProcessedIndex(lastProcessedIndex);
 
-        const currentTokenPrice = await getCurrentTokenPrice();
-        setCurrentTokenPrice(currentTokenPrice.godl.usd);
+            const totalDividendsDistributed = await getTotalDividendsDistributed();
+            setTotalDividendsDistributed(totalDividendsDistributed);
 
-        const lastProcessedIndex = await getLastProcessedIndex();
-        setLastProcessedIndex(lastProcessedIndex);
+            const numberOfDividendTokenHolders = await getNumberOfDividendTokenHolders();
+            setNumberOfDividendTokenHolders(numberOfDividendTokenHolders);
 
-        const totalDividendsDistributed = await getTotalDividendsDistributed();
-        setTotalDividendsDistributed(totalDividendsDistributed);
-
-        const numberOfDividendTokenHolders = await getNumberOfDividendTokenHolders();
-        setNumberOfDividendTokenHolders(numberOfDividendTokenHolders);
-
-        getDividendInformation(address);
+            await getDividendInformation(address);
+        }
+        init();
     }, []); //called only once
 
     const getDividendInformation = async(a) => {
@@ -134,26 +129,10 @@ const GodlDapp = () => {
     }
 
     const onInfoPressed = async () => {
-        if (info.trim() === "") {
-            setStatus(
-                <p> {" "} 🦊 {" "} </p>
-            );
-        }
-        setAddress(info);
-        getDividendInformation(info,false);
+        await getDividendInformation(info,false);
     };
 
-    const onGetIndexPressed = async () => {
-        if (index.trim() === "") {
-            setStatus(
-                <p> {" "} 🦊 {" "} </p>
-            );
-        }
-        setIndex(index);
-        getDividendInformation(index,true);
-    };
-
-// UI
+    // UI
     return (
         <div className="container">
             <div className="row">
@@ -173,7 +152,7 @@ const GodlDapp = () => {
                 <div id="tracker-container" className="col-lg-6">
                     <div id="top">
                       <span>
-                        <img id="logo" src="img/logo.png"></img>
+                        <img id="logo" src="img/logo.png" alt="GODL Logo"></img>
                         <strong>${symbol}</strong>
                       </span>
                         <span>${currentTokenPrice}</span>

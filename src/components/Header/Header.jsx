@@ -129,28 +129,44 @@ class Header extends Component {
         <div className="fixed-menu__content">
           <ul className="mob-menu">
             <li className="mob-menu__item">
-              <a href="#about" className="mob-menu__link">About</a>
-            </li>
-                      <li className="mob-menu__item">
-                          <a href="#stat" className="mob-menu__link">Statistics</a>
-                      </li>
-            <li className="mob-menu__item">
-              <a href="#services" className="mob-menu__link">Features</a>
+              <Link onClick={()=> this.fixedMenu()} href="#about" className="mob-menu__link" activeClass="active" to="about" spy={true} smooth={true} duration={1000}>
+                About
+              </Link>
             </li>
             <li className="mob-menu__item">
-              <a href="#map" className="mob-menu__link">Road Map</a>
-            </li>
-                      <li className="mob-menu__item">
-                          <a href="#docs" className="mob-menu__link">Whitepaper</a>
-                      </li>
-                      <li className="mob-menu__item">
-                          <a href="#how_to_buy" className="mob-menu__link">How To Buy</a>
-                      </li>
-            <li className="mob-menu__item">
-              <a href="#token" className="mob-menu__link">Tokenomics</a>
+                <Link onClick={()=> this.fixedMenu()} href="#stat" className="mob-menu__link" activeClass="active" to="stat" spy={true} smooth={true} duration={1000}>
+                  Statistics
+                </Link>
             </li>
             <li className="mob-menu__item">
-              <a href="#faq" className="mob-menu__link">FAQ</a>
+              <Link onClick={()=> this.fixedMenu()} href="#services" className="mob-menu__link" activeClass="active" to="services" spy={true} smooth={true} duration={1000}>
+                Features
+              </Link>
+            </li>
+            <li className="mob-menu__item">
+              <Link onClick={()=> this.fixedMenu()} href="#map" className="mob-menu__link" activeClass="active" to="map" spy={true} smooth={true} duration={1000}>
+                Road Map
+              </Link>
+            </li>
+            <li className="mob-menu__item">
+                <Link onClick={()=> this.fixedMenu()} href="#docs" className="mob-menu__link" activeClass="active" to="docs" spy={true} smooth={true} duration={1000}>
+                  Whitepaper
+                </Link>
+            </li>
+            <li className="mob-menu__item">
+                <Link onClick={()=> this.fixedMenu()} href="#how_to_buy" className="mob-menu__link" activeClass="active" to="how_to_buy" spy={true} smooth={true} duration={1000}>
+                  How To Buy
+                </Link>
+            </li>
+            <li className="mob-menu__item">
+              <Link onClick={()=> this.fixedMenu()} href="#token" className="mob-menu__link" activeClass="active" to="token" spy={true} smooth={true} duration={1000}>
+                Tokenomics
+              </Link>
+            </li>
+            <li className="mob-menu__item">
+              <Link onClick={()=> this.fixedMenu()} href="#faq" className="mob-menu__link" activeClass="active" to="faq" spy={true} smooth={true} duration={1000}>
+                FAQ
+              </Link>
             </li>
           </ul>
   

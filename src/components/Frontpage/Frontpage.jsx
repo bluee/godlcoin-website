@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import "./frontpage.css";
 import AOS from 'aos';
 
-AOS.init({
-  disable: 'mobile',
-  duration: 1000,
-  once: true
-})
+AOS.init({})
 
 class Frontpage extends Component {
   constructor() {

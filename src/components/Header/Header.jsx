@@ -114,7 +114,7 @@ class Header extends Component {
 
       <div className={this.state.fixedMenu ? 'fixed-menu open' : 'fixed-menu'}>
         <div className="fixed-menu__header">
-          <Link href="#home" className="logo logo--color" to="root" spy={true} smooth={true} duration={1000}>          
+          <Link onClick={()=> this.fixedMenu()} href="#home" className="logo logo--color" to="root" spy={true} smooth={true} duration={1000}>          
             <div className="logo__img"></div>
             <div className="logo__title">GODL Coin</div>
           </Link>

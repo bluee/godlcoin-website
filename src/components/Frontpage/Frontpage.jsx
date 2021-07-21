@@ -46,7 +46,7 @@ class Frontpage extends Component {
   
                               <a href="https://www.dextools.io/app/uniswap/pair-explorer/0x4aedd28e59cdb3043e269f1d51cbdddf23be56bb" className="btn btn--medium btn--blue">Live Chart</a>
 
-                              <a href="/tracker" className="btn btn--medium btn--gold">View Earnings</a>
+                              <a href="/#/tracker" className="btn btn--medium btn--gold">View Earnings</a>
 
                           </div>
                       </div>

@@ -16,7 +16,11 @@ class Frontpage extends Component {
     
   
   toggle(i) {
-    this.setState({ indexActive: i});
+    if(this.state.indexActive === i){
+      this.setState({ indexActive: 0});
+    }else{
+      this.setState({ indexActive: i});
+    }
   }
 
 

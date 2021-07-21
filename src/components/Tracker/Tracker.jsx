@@ -180,11 +180,12 @@ const GodlDapp = () => {
 
                         <div id="address-form">
                             <input
+                                className="form__input in "
                                 type="text"
-                                placeholder="enter address here"
+                                placeholder="Enter address here..."
                                 onChange={(e) => setInfo(e.target.value)}
                                 value={info} />
-                            <button id="publish" onClick={onInfoPressed}>
+                            <button className="form__btn btn btn--blue" onClick={onInfoPressed}>
                                 Get Address Information
                             </button>
                         </div>

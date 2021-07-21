@@ -116,31 +116,38 @@ const GodlDapp = () => {
     }, []); //called only once
 
     const getDividendInformation = async(a) => {
-        setInvalidAddress(false)            
-
         if(a.substring(0,2) === "0x") {
-            let validAddress = await isAddress(info)
-            if(!validAddress){
-                setInvalidAddress(true)
-                return
-            }
             const accountDividendsInfo = await getAccountDividendsInfo(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(a);
             setAddressBalance(addressBalance);
-        } else if( !isNaN(a) ) {
+        } else {
             if(a <= 0) return;
             const accountDividendsInfo = await getAccountDividendsInfoAtIndex(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(accountDividendsInfo[0]);
             setAddressBalance(addressBalance);
-        }else{
-            setInvalidAddress(true)
-            return
         }
     }
 
+
     const onInfoPressed = async () => {
+        // Validation for ETH Address
+        if(info.substring(0,2) === "0x") {
+            let validAddress = await isAddress(info)
+            if(!validAddress){
+                setInvalidAddress(true)
+                return
+            }else{
+                setInvalidAddress(false)
+            } 
+        }else if(isNaN(info) ){
+            setInvalidAddress(true)
+            return
+        }else{
+            setInvalidAddress(false)
+        }
+
         await getDividendInformation(info,false);
     };
 

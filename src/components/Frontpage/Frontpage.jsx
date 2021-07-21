@@ -46,7 +46,7 @@ class Frontpage extends Component {
   
                               <a href="https://www.dextools.io/app/uniswap/pair-explorer/0x4aedd28e59cdb3043e269f1d51cbdddf23be56bb" className="btn btn--medium btn--blue">Live Chart</a>
 
-                              <a href="/#/tracker" className="btn btn--medium btn--gold">View Earnings</a>
+                              <a href="/tracker" className="btn btn--medium btn--gold">View Earnings</a>
 
                           </div>
                       </div>
@@ -550,21 +550,21 @@ class Frontpage extends Component {
   
                           <ul className="accordion">
                               <li>
-                                  <a href="#1" className={this.state.indexActive === 1 ? 'active' : ''} onClick={ () => this.toggle(1)} >What is the use case of GODL?</a>
+                                  <h3 className={this.state.indexActive === 1 ? 'active' : ''} onClick={ () => this.toggle(1)} >What is the use case of GODL?</h3>
                                   <p style={{display: this.state.indexActive === 1  && 'block'}}>
                                       Nothing really other than to receive ETH rewards. We do not want to be another project that
                                       creates another crypto wallet, another charting tool, donates to charity, etc.
                                   </p>
                               </li>
                               <li>
-                                  <a href="#2" className={this.state.indexActive === 2 ? 'active' : ''} onClick={()=>this.toggle(2)}  >Is GODL a TIKI fork?</a>
+                                  <h3 className={this.state.indexActive === 2 ? 'active' : ''} onClick={()=>this.toggle(2)}  >Is GODL a TIKI fork?</h3>
                                   <p style={{display: this.state.indexActive === 2  && 'block'}}>
                                       Yes. GODL was based on TIKI. The major differences are: 1.) GODL runs on Ethereum instead of BSC
                                       2.) GODL redistributes ETH rewards instead of BNB and 3.) some aspects of the tokenomics were changed.
                                   </p>
                               </li>
                               <li>
-                                  <a href="#3" className={this.state.indexActive === 3 ? 'active' : ''} onClick={()=>this.toggle(3)} >Why is the rewards tax lower than TIKI&apos;s?</a>
+                                  <h3 className={this.state.indexActive === 3 ? 'active' : ''} onClick={()=>this.toggle(3)} >Why is the rewards tax lower than TIKI&apos;s?</h3>
                                   <p style={{display: this.state.indexActive === 3  && 'block'}}>
                                       TIKI&apos;s transaction fee consists of a 10% rewards tax, 5% liquidity tax, and a 3% sell tax. This means
                                       that the coin price needs to increase by 33 percentage points just for a new buyer to breakeven! This
@@ -574,7 +574,7 @@ class Frontpage extends Component {
                                   </p>
                               </li>
                               <li>
-                                <a href="#4" className={this.state.indexActive === 4 ? 'active' : ''} onClick={()=>this.toggle(4)} >Who is the 0x...488d wallet that keeps on selling?</a>
+                                <h3 className={this.state.indexActive === 4 ? 'active' : ''} onClick={()=>this.toggle(4)} >Who is the 0x...488d wallet that keeps on selling?</h3>
                                 <p style={{display: this.state.indexActive === 4  && 'block'}}>
                                                     Do not panic. This is address is commonly known as the Uniswap router. The contract is programmed to sell GODL
                                   after it accumulates past a certain threshold in order to procure the ETH rewards. Without this selling,
@@ -582,7 +582,7 @@ class Frontpage extends Component {
                                 </p>
                               </li>
                             <li>
-                              <a href="#5" className={this.state.indexActive === 5 ? 'active' : ''} onClick={()=>this.toggle(5)} >Why have I not received my ETH yet despite being eligible for rewards?</a>
+                              <h3 className={this.state.indexActive === 5 ? 'active' : ''} onClick={()=>this.toggle(5)} >Why have I not received my ETH yet despite being eligible for rewards?</h3>
                               <p style={{display: this.state.indexActive === 5  && 'block'}}>
                                 This is because the contract has not delivered your rewards yet. The contract delivers rewards to eligible holders
                                 in a round-robin fashion. It works by charging an extra amount of gas for each transaction in order

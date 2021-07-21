@@ -6737,7 +6737,7 @@ section {
   padding: 0 20px 30px
 }
 
-.accordion a {
+.accordion h3 {
   width: 100%;
   display: block;
   cursor: pointer;
@@ -6758,7 +6758,7 @@ section {
   border-radius: 30px
 }
 
-.accordion a:after {
+.accordion h3:after {
   content: '';
   position: absolute;
   top: 14px;
@@ -6779,23 +6779,23 @@ section {
   transition: transform .4s,-webkit-transform .4s
 }
 
-.accordion a:hover {
+.accordion h3:hover {
   color: #557ef8!important
 }
 
-.accordion a.active {
+.accordion h3.active {
   color: #557ef8!important;
   padding-bottom: 20px
 }
 
-.accordion a.active:after {
+.accordion h3.active:after {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg)
 }
 
 @media (min-width: 768px) {
-  .accordion a {
+  .accordion h3 {
       padding:30px 40px;
       -webkit-border-radius: 40px;
       border-radius: 40px;
@@ -6803,7 +6803,7 @@ section {
       line-height: 24px
   }
 
-  .accordion a:after {
+  .accordion h3:after {
       top: 18px
   }
 

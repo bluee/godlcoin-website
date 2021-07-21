@@ -40,7 +40,7 @@ class Header extends Component {
   return (
       <React.Fragment>
       <header id="header" className={this.state.sticky ? 'sticky header' : 'header'} >
-        <Link href="#home" className="logo" to="root" spy={true} smooth={true} duration={1000}>          
+        <Link href="/" className="logo" to="root" spy={true} smooth={true} duration={1000}>          
           <div className="logo__img"></div>
           <div className="logo__title">GODL Coin</div>
         </Link>
@@ -114,7 +114,7 @@ class Header extends Component {
 
       <div className={this.state.fixedMenu ? 'fixed-menu open' : 'fixed-menu'}>
         <div className="fixed-menu__header">
-          <Link onClick={()=> this.fixedMenu()} href="#home" className="logo logo--color" to="root" spy={true} smooth={true} duration={1000}>          
+          <Link onClick={()=> this.fixedMenu()} href="/" className="logo logo--color" to="root" spy={true} smooth={true} duration={1000}>          
             <div className="logo__img"></div>
             <div className="logo__title">GODL Coin</div>
           </Link>

@@ -14,6 +14,7 @@ import {
     decimals,
     fromWei,
     shortenAddress,
+    isAddress
 } from "./Godl.js";
 
 const PrintGlobalDividends = ({data}) => (
@@ -88,6 +89,7 @@ const GodlDapp = () => {
     const [currentTokenPrice, setCurrentTokenPrice] = useState(errorMessage);
     const [addressBalance, setAddressBalance] = useState(errorMessage);
     const [info, setInfo] = useState("");
+    const [invalidAddress, setInvalidAddress] = useState(false);
 
     useEffect(() => {
         async function init() {
@@ -114,17 +116,27 @@ const GodlDapp = () => {
     }, []); //called only once
 
     const getDividendInformation = async(a) => {
+        setInvalidAddress(false)            
+
         if(a.substring(0,2) === "0x") {
+            let validAddress = await isAddress(info)
+            if(!validAddress){
+                setInvalidAddress(true)
+                return
+            }
             const accountDividendsInfo = await getAccountDividendsInfo(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(a);
             setAddressBalance(addressBalance);
-        } else {
+        } else if( !isNaN(a) ) {
             if(a <= 0) return;
             const accountDividendsInfo = await getAccountDividendsInfoAtIndex(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(accountDividendsInfo[0]);
             setAddressBalance(addressBalance);
+        }else{
+            setInvalidAddress(true)
+            return
         }
     }
 
@@ -180,11 +192,12 @@ const GodlDapp = () => {
 
                         <div id="address-form">
                             <input
-                                className="form__input in "
+                                className={invalidAddress ? 'form__input in is-invalid' : 'form__input in'}
                                 type="text"
                                 placeholder="Enter address here..."
                                 onChange={(e) => setInfo(e.target.value)}
                                 value={info} />
+                            { invalidAddress && <div className="invalid-feedback">Please provide a valid Ethereum Address!</div> }
                             <button className="form__btn btn btn--blue" onClick={onInfoPressed}>
                                 Get Address Information
                             </button>

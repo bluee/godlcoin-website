@@ -46,6 +46,10 @@ export const getAccountDividendsInfo = async (a) => {
     return info;
 };
 
+export const isAddress = async (a) => {
+   return web3.utils.isAddress(a)
+};
+
 export const getAccountDividendsInfoAtIndex = async (i) => {
     if(!i) return;
     const info = await godlContract.methods.getAccountDividendsInfoAtIndex(i).call();

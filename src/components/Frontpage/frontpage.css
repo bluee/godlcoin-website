@@ -4483,7 +4483,7 @@ section {
   width: 100%;
   z-index: 10;
   height: 90px;
-  padding: 0 10px;
+  padding: 0 15px;
   border-bottom: 1px solid transparent;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4522,7 +4522,7 @@ section {
   -webkit-transition: background-color .4s;
   -o-transition: background-color .4s;
   transition: background-color .4s;
-  padding: 0 10px
+  padding: 0 15px;
 }
 
 .header.sticky .logo__title {
@@ -4735,7 +4735,6 @@ section {
   -webkit-transition: .4s;
   -o-transition: .4s;
   transition: .4s;
-  padding: 0 10px
 }
 
 .fixed-menu.open {
@@ -4758,11 +4757,12 @@ section {
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center
+  align-items: center;
+  padding: 0 15px;
 }
 
 .fixed-menu__content {
-  padding: 20px 90px 20px
+  /* padding: 20px 90px 20px */
 }
 
 .fixed-menu .select-styled.active {
@@ -4790,7 +4790,8 @@ section {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex
+  display: flex;
+  padding: 0 15px;
 }
 
 .fixed-menu .btn-menu div {
@@ -4808,6 +4809,8 @@ section {
 .btn-close svg {
   width: 28px;
   height: 28px;
+  margin-top: 7px;
+  margin-right: 2px;
 }
 
 .btn-close svg path {
@@ -4820,7 +4823,13 @@ section {
 
 .mob-menu__item {
   text-align: left;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  border-radius: 1px;
+  display: flex;
+  background: #fff;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
 }
 
 .mob-menu__item:last-child {
@@ -4833,12 +4842,18 @@ section {
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  white-space: nowrap
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 50px;
+  padding: 0 20px;
+  display: inline-block;
+  width: 100%;  
 }
 
 .mob-menu__link.active {
   content: '';  
   border-bottom: 2px solid #00c3e2;
+  color: #00c3e2;
 }
 .mob-menu__link:after {
   content: '';
@@ -5035,7 +5050,7 @@ section {
 }
 
 .btn-sign-in {
-  width: 180px;
+  width: 100%;
   height: 50px;
   -webkit-border-radius: 5px;
   border-radius: 5px;

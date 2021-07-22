@@ -4534,7 +4534,7 @@ section {
 }
 
 .header.sticky .menu__link {
-  color: #777
+  color: #4a4a4a;
 }
 
 .header.sticky .menu__link:after, .header.sticky .menu__link.active:after {
@@ -4837,7 +4837,7 @@ section {
 }
 
 .mob-menu__link {
-  color: #777;
+  color: #4a4a4a;
   position: relative;
   -webkit-transition: .2s;
   -o-transition: .2s;

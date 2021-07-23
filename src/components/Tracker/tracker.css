@@ -23,10 +23,17 @@
     font-size:14px;
 }
 #tracker-container .heading {
-    padding:7px;
-    margin:3px;
+    padding: 0 9px;
+    margin:10px;
     display:block;
-    text-align:center;
+    text-align:center;    
+    position: absolute;
+    top: -20px;
+    background: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+    color: pink; 
+    width: auto;   
 }
 #tracker-container .center {
     border:1px solid pink;
@@ -39,7 +46,7 @@
     height:5vh;
 }
 #totalDividends {
-    padding:15px;
+    padding: 10px 0 0;
     text-align: center;
 }
 #dividendInformation {
@@ -65,6 +72,8 @@
 }
 #address-form {
     text-align: center;
+    position: relative;
+    margin-top: 25px;
 }
 
 .invalid-feedback {
@@ -82,4 +91,51 @@
   background-position: right calc(.375em + .1875rem) center;
   background-size: calc(.75em + .375rem) calc(.75em + .375rem);
   transition: none;
+}
+
+
+.navTab{
+    border-bottom: 1px solid #d1d5db;
+    display: flex;
+    color: #374151; 
+}
+.TabSelector{
+    line-height: 1.25rem;
+    font-weight: 600;
+    font-size: .975rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border-bottom-width: 2px;
+    border-color: transparent;
+    cursor: pointer;
+    align-items: center;
+    /* margin-right: 2rem; */
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: button;
+    color:#6b7280;
+    outline: 0;
+    align-items: center;
+    width: 100%;
+}   
+.TabSelector:hover{
+    color: #4b5563;
+    border-bottom: 2px #d1d5db solid;
+}
+.TabSelector.active{
+    color: #4f46e5;
+    border-bottom:2px #6366f1 solid
+}
+.p-4{
+    padding: 1rem 0;
+}
+.card{
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+    border: none;
+    border-radius: 5px;  
+    padding: 10px;
+    margin: 10px 0;  
+    font-size: 16px;
 }

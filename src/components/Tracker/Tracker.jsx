@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./tracker.css";
+import "./coin.css";
 import {
     getSymbol,
     getTotalDividendsDistributed,
@@ -14,8 +15,13 @@ import {
     decimals,
     fromWei,
     shortenAddress,
-    isAddress
+    isAddress,
+    getTxns,
+    getEthPrice,
 } from "./Godl.js";
+import { TabSelector } from './TabSelector';
+import { CoinLoader } from './CoinLoader';
+import { useTabs, TabPanel } from "react-headless-tabs"
 
 const PrintGlobalDividends = ({data}) => (
     <div id="totalDividends">
@@ -77,6 +83,27 @@ const PrintIterationsUntilProcessed = ({data}) => (
         <b>Iterations until processed:</b> {data}
     </div>);
 
+const PrintReadyTx = ({ data }) => (
+    data &&  data.map((tx, i)=>{
+        return(
+            <div className="card" key={i}>
+                <div className="row">
+                    <div className="col-5">
+                        {(new Date(tx.date)).toLocaleString()}
+                    </div>
+                    <div className="col-4">
+                        {tx.value} <small>ETH</small> <br/>
+                        {tx.valueUsd} <small>USD</small>
+                    </div>
+                    <div className="col-3">
+                        <a target="_blank" rel="noreferrer" href={"https://etherscan.io/tx/" + tx.txhashFull}>{tx.txhash}</a>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+);
+
 const GodlDapp = () => {
 
     const errorMessage = "No connection to the network.";
@@ -90,6 +117,14 @@ const GodlDapp = () => {
     const [addressBalance, setAddressBalance] = useState(errorMessage);
     const [info, setInfo] = useState("");
     const [invalidAddress, setInvalidAddress] = useState(false);
+
+    const [selectedTab, setSelectedTab] = useTabs([
+        'info',
+        'transactions',
+      ]);  
+    const [readyTx, setReadyTx] = useState("");
+
+    let page = 0
 
     useEffect(() => {
         async function init() {
@@ -110,28 +145,100 @@ const GodlDapp = () => {
             const numberOfDividendTokenHolders = await getNumberOfDividendTokenHolders();
             setNumberOfDividendTokenHolders(numberOfDividendTokenHolders);
 
-            await getDividendInformation(address);
+            let getAllTx = null
+            await getDividendInformation(address, getAllTx);           
         }
         init();
     }, []); //called only once
 
-    const getDividendInformation = async(a) => {
+    const getDividendInformation = async(a, callback) => {
         if(a.substring(0,2) === "0x") {
             const accountDividendsInfo = await getAccountDividendsInfo(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(a);
             setAddressBalance(addressBalance);
+            callback(accountDividendsInfo[0])
         } else {
             if(a <= 0) return;
             const accountDividendsInfo = await getAccountDividendsInfoAtIndex(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(accountDividendsInfo[0]);
             setAddressBalance(addressBalance);
+            callback(accountDividendsInfo[0])
         }
     }
 
+    let allTxnsData = []
+    const getAllTx = async (address) => {
+        const txns = await getTxns(page, address);
+        
+        // TODO: Add Pagination!
+        // if(txns.data.pagination.total_count){
+        //     var total_pages = Math.ceil(txns.data.pagination.total_count / 10)
+        //     console.log('Total Page.....', total_pages - 1)
+        // }
+       
+        var txnsData = txns.data.items
+        allTxnsData.push(...txnsData);
+    
+        if(txns.data.pagination.has_more){
+           page++
+           getAllTx(address)
+        }else{
+           setAllTx(allTxnsData, address)
+        }
+    }
+
+    const setAllTx = async (txns, address) => {
+        
+        if(txns){
+            const eth = await getEthPrice()
+            const ethPrice = eth.data.items[0].quote_rate
+    
+            var count = 0
+            var readyTx = []
+ 
+            txns.forEach((tx, i)=>{
+                if(tx.to_address !== "0x7a250d5630b4cf539739df2c5dacb4c659f2488d" ){
+                    return
+                }
+                tx.log_events.forEach((log, x)=>{
+
+                    if(log.sender_address !== "0x71b299887dea1ffbc04f000d3645803f5631f83a" ){
+                        return
+                    }
+                    if(log.decoded){
+                        if(log.decoded.params){
+                            log.decoded.params.forEach((param, y)=>{
+                                if(param.name === "to" && param.type === "address" & param.value.toLowerCase() === address.toLowerCase() ){
+                                    log.decoded.params.forEach((param, z)=>{
+                                        if(param.name === "weiAmount"){
+                                            let value = fromWei(param.value, decimals).toLocaleString(undefined, {maximumFractionDigits:6})
+                                            let valUsd = (value * ethPrice).toLocaleString(undefined, {maximumFractionDigits:2})
+                                            readyTx[count] = {
+                                                value: value,
+                                                txhash: shortenAddress(log.tx_hash),
+                                                txhashFull: log.tx_hash,
+                                                date: log.block_signed_at,
+                                                valueUsd: valUsd
+                                            }
+                                            count++
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    }
+                })
+            }) 
+            setReadyTx(readyTx)
+        }
+    }
+    
 
     const onInfoPressed = async () => {
+        // Reset readyTx on Click
+        setReadyTx("")
         // Validation for ETH Address
         if(info.substring(0,2) === "0x") {
             let validAddress = await isAddress(info)
@@ -148,15 +255,14 @@ const GodlDapp = () => {
             setInvalidAddress(false)
         }
 
-        await getDividendInformation(info,false);
+        await getDividendInformation(info, getAllTx);  
     };
+
 
     // UI
     return (
         <div className="container">
-            <div className="row">
-                <div className="offset-lg-3"></div>
-
+            <div className="row justify-content-md-center">
                 <div className="col-lg-3">
                     <a href="/" className="logo">
                         <div className="logo__img"></div>
@@ -182,34 +288,64 @@ const GodlDapp = () => {
 
                     <hr/>
 
-                    <em className="heading">Dividend Information ➬</em>
-                    <div id="dividendInformation">
-                        <PrintAddress data={ accountDividendsInfo[0] } />
-                        <PrintBalance data={ addressBalance } />
-                        <PrintDividends data={ fromWei(accountDividendsInfo[3],decimals) } />
-                        <PrintTotalDividends data={fromWei(accountDividendsInfo[4],decimals) } />
-                        <PrintIndex data={accountDividendsInfo[1] } />
-                        <PrintIterationsUntilProcessed data={accountDividendsInfo[2] } />
-                        <PrintLastProcessedIndex data={lastProcessedIndex } />
-                        <PrintClaimTime data={ accountDividendsInfo[5] } />
-                        <PrintNextClaimTime data={accountDividendsInfo[6] } />
+                    <nav className="navTab">
+                        <TabSelector
+                        isActive={selectedTab === 'info'}
+                        onClick={() => setSelectedTab('info')}
+                        >
+                            Dividend Information
+                        </TabSelector>
+                        <TabSelector
+                        isActive={selectedTab === 'transactions'}
+                        onClick={() => setSelectedTab('transactions')}
+                        >
+                            Transactions
+                        </TabSelector>
+                    </nav>
+                    <div className="p-4">
+                        <TabPanel hidden={selectedTab !== 'info'}>
+                        <div id="dividendInformation">
+                            <PrintAddress data={ accountDividendsInfo[0] } />
+                            <PrintBalance data={ addressBalance } />
+                            <PrintDividends data={ fromWei(accountDividendsInfo[3],decimals) } />
+                            <PrintTotalDividends data={fromWei(accountDividendsInfo[4],decimals) } />
+                            <PrintIndex data={accountDividendsInfo[1] } />
+                            <PrintIterationsUntilProcessed data={accountDividendsInfo[2] } />
+                            <PrintLastProcessedIndex data={lastProcessedIndex } />
+                            <PrintClaimTime data={ accountDividendsInfo[5] } />
+                            <PrintNextClaimTime data={accountDividendsInfo[6] } />
+                        </div>
+                        </TabPanel>
+
+                        <TabPanel hidden={selectedTab !== 'transactions'}>
+                            
+
+                        { !invalidAddress && (typeof accountDividendsInfo === 'object') && !readyTx ? 
+                            <CoinLoader /> 
+                        :   readyTx ?
+                            <PrintReadyTx data={readyTx} />
+                        :   
+                            <div className="text-center"><small>Enter you address to get transactions!</small></div>
+                        }
+                        
+                        </TabPanel>
+
                         <hr/>
-
-                        <em className="heading">Search Dividend Information ➬</em>
-
                         <div id="address-form">
+                            <span className="heading">Search {selectedTab === 'info' ? 'Dividend Information' : 'Transactions' }</span>
                             <input
                                 className={invalidAddress ? 'form__input in is-invalid' : 'form__input in'}
                                 type="text"
-                                placeholder="Enter address here..."
+                                placeholder="Enter your address..."
                                 onChange={(e) => setInfo(e.target.value)}
                                 value={info} />
                             { invalidAddress && <div className="invalid-feedback">Please provide a valid Ethereum Address!</div> }
                             <button className="form__btn btn btn--blue" onClick={onInfoPressed}>
                                 Get Address Information
                             </button>
-                        </div>
-                    </div>
+                        </div>                        
+                    </div> 
+
                 </div>
             </div>
         </div>

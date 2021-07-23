@@ -21,7 +21,7 @@ export function fromWei(n, d) { // fromWeiToEth
 }
 
 export function shortenAddress(a) {
-    return String(a).substring(0, 6) + "..." + String(a).substring(38);
+    return String(a).substring(0, 6) + "..." + String(a).substr(-4);
 }
 
 export const getSymbol = async () => {
@@ -71,6 +71,21 @@ export async function getCurrentTokenPrice() {
     const response = await fetch(coingeckoEndpoint);
     const price = await response.json();
     return price;
+}
+
+
+export async function getTxns(page, address) {
+    if(address){        
+        let response = await fetch(`/.netlify/functions/fetch-api?call=tx&address=${address}&page=${page}`);  
+        const data = await response.json();
+        return data;
+    }
+}
+
+export async function getEthPrice() {
+    const response = await fetch('/.netlify/functions/fetch-api?call=ethPrice');    
+    const data = await response.json();
+    return data;
 }
 
 export const connectWallet = async () => {

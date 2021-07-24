@@ -309,7 +309,7 @@ const GodlDapp = () => {
                         { invalidAddress && <div className="invalid-feedback">Please provide a valid Ethereum Address!</div> }
                         <div className="input-group-btn">
                             <button className="form__btn btn btn--blue" onClick={onInfoPressed}>
-                                <svg viewBox="0 0 12 12" fill="none" style={{height: '25px', verticalAlign: 'middle'}}><path fill-rule="evenodd" clip-rule="evenodd" d="M6 .666l-.94.94 3.72 3.727H.667v1.333H8.78l-3.727 3.72.947.947L11.333 6 6 .666z" fill="currentColor" data-darkreader-inline-fill=""></path></svg>
+                                <svg viewBox="0 0 12 12" fill="none" style={{height: '25px', verticalAlign: 'middle'}}><path fillRule="evenodd" clipRule="evenodd" d="M6 .666l-.94.94 3.72 3.727H.667v1.333H8.78l-3.727 3.72.947.947L11.333 6 6 .666z" fill="currentColor"></path></svg>
                             </button>
                         </div>
                     </div>                        

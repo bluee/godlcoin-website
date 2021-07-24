@@ -88,14 +88,14 @@ const PrintReadyTx = ({ data }) => (
         return(
             <div className="card" key={i}>
                 <div className="row">
-                    <div className="col-5">
+                    <div className="col-4">
                         {(new Date(tx.date)).toLocaleString()}
                     </div>
                     <div className="col-4">
                         {tx.value} <small>ETH</small> <br/>
                         {tx.valueUsd} <small>USD</small>
                     </div>
-                    <div className="col-3">
+                    <div className="col-4">
                         <a target="_blank" rel="noreferrer" href={"https://etherscan.io/tx/" + tx.txhashFull}>{tx.txhash}</a>
                     </div>
                 </div>
@@ -145,8 +145,8 @@ const GodlDapp = () => {
             const numberOfDividendTokenHolders = await getNumberOfDividendTokenHolders();
             setNumberOfDividendTokenHolders(numberOfDividendTokenHolders);
 
-            let getAllTx = null
-            await getDividendInformation(address, getAllTx);           
+            // let getAllTx = null
+            await getDividendInformation(address);           
         }
         init();
     }, []); //called only once
@@ -263,7 +263,7 @@ const GodlDapp = () => {
     return (
         <div className="container">
             <div className="row justify-content-md-center">
-                <div className="col-lg-3">
+                <div className="col-12">
                     <a href="/" className="logo">
                         <div className="logo__img"></div>
                         <div className="logo__title">GODL Coin</div>
@@ -297,7 +297,10 @@ const GodlDapp = () => {
                         </TabSelector>
                         <TabSelector
                         isActive={selectedTab === 'transactions'}
-                        onClick={() => setSelectedTab('transactions')}
+                        onClick={() => {
+                            setSelectedTab('transactions')
+                            !invalidAddress && (typeof accountDividendsInfo === 'object') && getAllTx(accountDividendsInfo[0])
+                        }}
                         >
                             Transactions
                         </TabSelector>

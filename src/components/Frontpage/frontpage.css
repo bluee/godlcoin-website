@@ -4574,7 +4574,8 @@ section {
   top: -3.5px;
   -webkit-transition: opacity .4s;
   -o-transition: opacity .4s;
-  transition: opacity .4s
+  transition: opacity .4s;
+  justify-content: center;
 }
 
 .logo__img {

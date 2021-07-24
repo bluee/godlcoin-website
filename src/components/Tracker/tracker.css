@@ -12,7 +12,7 @@
 }
 #tracker-container input {
     margin:5px 0;
-    border:2px solid #adbdea;
+    border:2px solid #557ff8;
     border-right: 0;    
     display: table-cell;    
     border-radius: 0;
@@ -145,11 +145,12 @@
 
 .input-group-btn .btn{
     height: 45px;
-    line-height: 44px;
+    line-height: 10px;
     border-radius: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 90px;
+    vertical-align: middle;    
 }
 
 

@@ -24,63 +24,73 @@ import { CoinLoader } from './CoinLoader';
 import { useTabs, TabPanel } from "react-headless-tabs"
 
 const PrintGlobalDividends = ({data}) => (
-    <div id="totalDividends">
-        <b>Total ETH paid to holders:</b> {data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH
-    </div>
+    <React.Fragment>
+        TOTAL PAID
+        <div className="text_label">{data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH</div>
+    </React.Fragment>
 );
 
 const PrintAddress = ({data}) => (
-    <div>
-        <b>Address: </b>
-        <a href={"https://etherscan.io/address/" + data} target="_blank" rel="noreferrer">{data.length === 42 ? shortenAddress(data) : ''}</a>
+    <div className="tableView">
+        <div className="leftRow"><b>Address: </b></div>
+        { data.substring(0,2) === "0x" ? <div className="rightRow"><a href={"https://etherscan.io/address/" + data} target="_blank" rel="noreferrer">{data.length === 42 ? shortenAddress(data) : ''}</a></div>
+        : 'No connection to the network.' }
     </div>
 );
 
 const PrintBalance = ({data}) => (
-    <div>
-        <b>GODL Balance: </b>{data}
+    <div className="tableView">
+        <div className="leftRow"><b>GODL Balance: </b></div>
+        <div className="rightRow">{data}</div>
     </div>
 );
 
 const PrintIndex = ({data}) => (
-    <div>
-        <b>Index: </b>{data}
+    <div className="tableView">
+        <div className="leftRow"><b>Index: </b></div>
+        <div className="rightRow">{data}</div>
     </div>
 );
 
 const PrintLastProcessedIndex = ({data}) => (
-    <div>
-        <b>Last processed index:</b> {data}
+    <div className="tableView">
+        <div className="leftRow"><b>Last processed index:</b></div>
+        <div className="rightROw">{data}</div>
     </div>
 );
 
 const PrintDividends = ({data}) => (
-    <div>
-        <b>Withdrawable dividends:</b> {data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH
+    <div className="tableView">
+        <div className="leftRow"><b>Withdrawable dividends:</b></div>
+        <div className="rightROw">{data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH</div>
     </div>
 );
 
 const PrintTotalDividends = ({data}) => (
-    <div>
-        <b>Total user dividends:</b> {data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH
+    <div className="tableView">
+        <div className="leftRow"><b>Total user dividends:</b> </div>
+        <div className="rightROw">{data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH</div>
     </div>
 );
 
 const PrintClaimTime = ({data}) => (
-    <div>
-        <b>Last claim time:</b> {(new Date(data * 1000)).toLocaleString()}
+    <div className="tableView">
+        <div className="leftRow"><b>Last claim time:</b></div>
+        <div className="rightRow">{(new Date(data * 1000)).toLocaleString()}</div> 
     </div>
 );
 
 const PrintNextClaimTime = ({data}) => (
-    <div>
-        <b>Next claim time:</b> {(new Date(data * 1000)).toLocaleString()}
+    <div className="tableView">
+        <div className="leftRow"><b>Next claim time:</b></div>
+        <div className="rightRow">{(new Date(data * 1000)).toLocaleString()}</div>
     </div>
 );
 
 const PrintIterationsUntilProcessed = ({data}) => (
-    <div>
-        <b>Iterations until processed:</b> {data}
+    <div className="tableView">
+        <div className="leftRow"><b>Iterations until processed:</b></div>
+        <div className="rightRow">{data}</div>
     </div>);
 
 const PrintReadyTx = ({ data }) => (
@@ -262,7 +272,7 @@ const GodlDapp = () => {
     // UI
     return (
         <div className="container">
-            <div className="row justify-content-md-center">
+            <div className="row justify-content-center">
                 <div className="col-12">
                     <a href="/" className="logo">
                         <div className="logo__img"></div>
@@ -275,18 +285,34 @@ const GodlDapp = () => {
                 <div className="offset-lg-3"></div>
 
                 <div id="tracker-container" className="col-lg-6">
-                    <div id="top">
+                    <div id="top" className="card">
                       <span>
-                        <img id="logo" src="img/logo.png" alt="GODL Logo"></img>
-                        <strong>${symbol}</strong>
+                        ${symbol}
+                        <div className="text_label">${currentTokenPrice}</div>
                       </span>
-                        <span>${currentTokenPrice}</span>
-                        <span>{numberOfDividendTokenHolders} holders</span>
+                      <span>
+                        TOTAL HOLDERS
+                        <div className="text_label">{numberOfDividendTokenHolders}</div>
+                      </span>
+                      <span>
+                        <PrintGlobalDividends data={ totalDividendsDistributed } />
+                      </span>
                     </div>
 
-                    <PrintGlobalDividends data={ totalDividendsDistributed } />
-
-                    <hr/>
+                    <div id="address-form">
+                        <input
+                            className={invalidAddress ? 'form__input in is-invalid' : 'form__input in'}
+                            type="text"
+                            placeholder="Enter your wallet address or index..."
+                            onChange={(e) => setInfo(e.target.value)}
+                            value={info} />
+                        { invalidAddress && <div className="invalid-feedback">Please provide a valid Ethereum Address!</div> }
+                        <div className="input-group-btn">
+                            <button className="form__btn btn btn--blue" onClick={onInfoPressed}>
+                                <svg viewBox="0 0 12 12" fill="none" style={{height: '25px', verticalAlign: 'middle'}}><path fill-rule="evenodd" clip-rule="evenodd" d="M6 .666l-.94.94 3.72 3.727H.667v1.333H8.78l-3.727 3.72.947.947L11.333 6 6 .666z" fill="currentColor" data-darkreader-inline-fill=""></path></svg>
+                            </button>
+                        </div>
+                    </div>                        
 
                     <nav className="navTab">
                         <TabSelector
@@ -328,25 +354,11 @@ const GodlDapp = () => {
                         :   readyTx ?
                             <PrintReadyTx data={readyTx} />
                         :   
-                            <div className="text-center"><small>Enter you address to get transactions!</small></div>
+                            <div className="text-center"><small>Enter you wallet address to get transactions!</small></div>
                         }
                         
                         </TabPanel>
 
-                        <hr/>
-                        <div id="address-form">
-                            <span className="heading">Search {selectedTab === 'info' ? 'Dividend Information' : 'Transactions' }</span>
-                            <input
-                                className={invalidAddress ? 'form__input in is-invalid' : 'form__input in'}
-                                type="text"
-                                placeholder="Enter your address..."
-                                onChange={(e) => setInfo(e.target.value)}
-                                value={info} />
-                            { invalidAddress && <div className="invalid-feedback">Please provide a valid Ethereum Address!</div> }
-                            <button className="form__btn btn btn--blue" onClick={onInfoPressed}>
-                                Get Address Information
-                            </button>
-                        </div>                        
                     </div> 
 
                 </div>

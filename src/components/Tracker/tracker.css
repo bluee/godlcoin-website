@@ -184,3 +184,27 @@
     -webkit-box-flex: 1;
     flex-grow: 1;
 }
+
+.filler{
+background: linear-gradient(90deg, #557ff8, #557ff8 17%, #01feff 34%, #01feff 51%, #557ff8 68%, #557ff8 85%, #01feff);
+background-size: 300% 100%;
+-webkit-animation: progress-animation 4s linear infinite;
+        animation: progress-animation 4s linear infinite;
+}
+@-webkit-keyframes progress-animation {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: 0;
+    }
+  }
+  
+  @keyframes progress-animation {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: 0;
+    }
+  }

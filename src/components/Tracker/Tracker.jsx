@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef} from "react";
 import "./tracker.css";
 import "./coin.css";
 import {
@@ -22,6 +22,7 @@ import {
 import { TabSelector } from './TabSelector';
 import { CoinLoader } from './CoinLoader';
 import { useTabs, TabPanel } from "react-headless-tabs"
+import ProgressBar from "./Progress-bar";
 
 const PrintGlobalDividends = ({data}) => (
     <React.Fragment>
@@ -128,13 +129,10 @@ const GodlDapp = () => {
     const [info, setInfo] = useState("");
     const [invalidAddress, setInvalidAddress] = useState(false);
 
-    const [selectedTab, setSelectedTab] = useTabs([
-        'info',
-        'transactions',
-      ]);  
+    const [selectedTab, setSelectedTab] = useTabs(['info','transactions']);  
     const [readyTx, setReadyTx] = useState("");
-
     let page = 0
+    let timer = useRef();
 
     useEffect(() => {
         async function init() {
@@ -155,11 +153,19 @@ const GodlDapp = () => {
             const numberOfDividendTokenHolders = await getNumberOfDividendTokenHolders();
             setNumberOfDividendTokenHolders(numberOfDividendTokenHolders);
 
-            // let getAllTx = null
-            await getDividendInformation(address);           
+            await getDividendInformation(address);  
         }
         init();
-    }, []); //called only once
+    }, []); // Called only once
+
+    useEffect(() => {
+        if( typeof accountDividendsInfo === 'object'){
+            timer.current = setInterval( async() => {
+                await getDividendInformation(accountDividendsInfo[0]);  
+            }, 60000);
+            return () => clearInterval(timer.current);          
+        }
+    }, [accountDividendsInfo]);
 
     const getDividendInformation = async(a, callback) => {
         if(a.substring(0,2) === "0x") {
@@ -167,16 +173,21 @@ const GodlDapp = () => {
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(a);
             setAddressBalance(addressBalance);
-            callback(accountDividendsInfo[0])
+            if(callback){
+                callback(accountDividendsInfo[0])
+            }
         } else {
             if(a <= 0) return;
             const accountDividendsInfo = await getAccountDividendsInfoAtIndex(a);
             setAccountDividendsInfo(accountDividendsInfo);
             const addressBalance = await balanceOf(accountDividendsInfo[0]);
             setAddressBalance(addressBalance);
-            callback(accountDividendsInfo[0])
-        }
+            if(callback){
+                callback(accountDividendsInfo[0])
+            }
+        }          
     }
+
 
     let allTxnsData = []
     const getAllTx = async (address) => {
@@ -249,6 +260,7 @@ const GodlDapp = () => {
     const onInfoPressed = async () => {
         // Reset readyTx on Click
         setReadyTx("")
+
         // Validation for ETH Address
         if(info.substring(0,2) === "0x") {
             let validAddress = await isAddress(info)
@@ -265,9 +277,15 @@ const GodlDapp = () => {
             setInvalidAddress(false)
         }
 
-        await getDividendInformation(info, getAllTx);  
+        await getDividendInformation(info, getAllTx);          
     };
-
+    
+    let progrees
+    if( parseInt(accountDividendsInfo[1]) > parseInt(accountDividendsInfo[2]) ){
+        progrees = Math.abs( (accountDividendsInfo[2]/accountDividendsInfo[1])*100-100 ).toFixed(0)
+    }else{
+        progrees = Math.abs( (accountDividendsInfo[1]/accountDividendsInfo[2])*100 ).toFixed(0)
+    }
 
     // UI
     return (
@@ -314,6 +332,8 @@ const GodlDapp = () => {
                         </div>
                     </div>                        
 
+                    <ProgressBar completed={progrees} />
+                    
                     <nav className="navTab">
                         <TabSelector
                         isActive={selectedTab === 'info'}

@@ -95,7 +95,7 @@ const PrintIterationsUntilProcessed = ({data}) => (
     </div>);
 
 const PrintReadyTx = ({ data }) => (
-    data &&  data.map((tx, i)=>{
+    data && data.map((tx, i)=>{
         return(
             <div className="card" key={i}>
                 <div className="row">
@@ -368,13 +368,13 @@ const GodlDapp = () => {
 
                         <TabPanel hidden={selectedTab !== 'transactions'}>
                             
-
                         { !invalidAddress && (typeof accountDividendsInfo === 'object') && !readyTx ? 
                             <CoinLoader /> 
-                        :   readyTx ?
+                        :   readyTx && readyTx.length > 0 ?
                             <PrintReadyTx data={readyTx} />
-                        :   
-                            <div className="text-center"><small>Enter you wallet address to get transactions!</small></div>
+                        :   !invalidAddress ?
+                            <div className="text-center"><small>You have no transactions yet!</small></div>
+                        :   <div className="text-center"><small>Enter you wallet address to get transactions!</small></div>
                         }
                         
                         </TabPanel>

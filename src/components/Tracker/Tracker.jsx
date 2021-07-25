@@ -372,7 +372,7 @@ const GodlDapp = () => {
                             <CoinLoader /> 
                         :   readyTx && readyTx.length > 0 ?
                             <PrintReadyTx data={readyTx} />
-                        :   !invalidAddress ?
+                        :   !invalidAddress && (typeof accountDividendsInfo === 'object') ?
                             <div className="text-center"><small>You have no transactions yet!</small></div>
                         :   <div className="text-center"><small>Enter you wallet address to get transactions!</small></div>
                         }

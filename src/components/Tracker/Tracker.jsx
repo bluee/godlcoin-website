@@ -131,6 +131,8 @@ const GodlDapp = () => {
 
     const [selectedTab, setSelectedTab] = useTabs(['info','transactions']);  
     const [readyTx, setReadyTx] = useState("");
+    const [ethPrice, setEthPrice] = useState("");
+
     let page = 0
     let timer = useRef();
 
@@ -152,6 +154,8 @@ const GodlDapp = () => {
 
             const numberOfDividendTokenHolders = await getNumberOfDividendTokenHolders();
             setNumberOfDividendTokenHolders(numberOfDividendTokenHolders);
+            
+            await ethPriceFuc();  
 
             await getDividendInformation(address);  
         }
@@ -188,6 +192,11 @@ const GodlDapp = () => {
         }          
     }
 
+    const ethPriceFuc = async () => {
+        const eth = await getEthPrice()
+        const ethPrice = eth.data.items[0].quote_rate
+        setEthPrice(ethPrice);
+    }
 
     let allTxnsData = []
     const getAllTx = async (address) => {
@@ -212,10 +221,7 @@ const GodlDapp = () => {
 
     const setAllTx = async (txns, address) => {
         
-        if(txns){
-            const eth = await getEthPrice()
-            const ethPrice = eth.data.items[0].quote_rate
-    
+        if(txns){    
             var count = 0
             var readyTx = []
  

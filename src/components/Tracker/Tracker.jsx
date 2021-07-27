@@ -63,14 +63,14 @@ const PrintLastProcessedIndex = ({data}) => (
 const PrintDividends = ({data}) => (
     <div className="tableView">
         <div className="leftRow"><b>Withdrawable dividends:</b></div>
-        <div className="rightROw">{data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH</div>
+        <div className="rightROw">{data.toLocaleString(undefined, {maximumFractionDigits:6})} ETH</div>
     </div>
 );
 
 const PrintTotalDividends = ({data}) => (
     <div className="tableView">
         <div className="leftRow"><b>Total user dividends:</b> </div>
-        <div className="rightROw">{data.toLocaleString(undefined, {maximumFractionDigits:3})} ETH</div>
+        <div className="rightROw">{data.toLocaleString(undefined, {maximumFractionDigits:6})} ETH</div>
     </div>
 );
 

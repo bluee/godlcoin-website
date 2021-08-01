@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./frontpage.css";
 import AOS from 'aos';
+import { Link } from 'react-scroll';
 
 AOS.init({})
 
@@ -36,10 +37,14 @@ class Frontpage extends Component {
               <h1 data-aos="fade-up" data-aos-anchor="#main" data-aos-delay="200">GODL Coin <span>on the Ethereum network</span></h1>
               <p data-aos="fade-up" data-aos-anchor="#main" data-aos-delay="300">
                               An innovative protocol which rewards holders with ETH (ERC-20) tokens <u>automatically</u>
+              <br/><span data-aos="fade-up" data-aos-anchor="#main" data-aos-delay="300">
+               Audit By  <Link href="#docs" to="docs" spy={true} smooth={true} duration={1000}>TechRate</Link>  & <a target="_blank" rel="noreferrer" href="https://tokensniffer.com/token/0x7f509465c38b66bdecec2cfdc842e11809cc8357">TokenSniffer</a>
+              </span>
+
               </p>
             </div>
           </div>
-  
+
                   <div className="row">
                       <div className="col">
                           <div className="first-screen__btns-wrap" data-aos="fade-up" data-aos-anchor="#main" data-aos-delay="500">

@@ -1,0 +1,39 @@
+.appNav{
+    margin-bottom: 10px;
+    justify-self: center;
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border-radius: 16px;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    overflow: auto;
+    -moz-box-align: center;
+    align-items: center;
+}
+.appNavItem{
+    display: flex;
+    flex-flow: row nowrap;
+    border-radius: 3rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    width: -moz-fit-content;
+    font-weight: 500;
+    padding: 8px 12px;
+    word-break: break-word;
+}
+.appNavItem.active{
+    border-radius: 12px;
+    font-weight: 600;
+    background-color: rgb(238, 238, 238);
+}
+.appNavItem sup{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    line-height: 1.5em;
+}
+.appNavItem:hover{
+    color: rgb(0, 0, 0);
+}
+

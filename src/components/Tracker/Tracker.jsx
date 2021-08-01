@@ -23,6 +23,7 @@ import { TabSelector } from './TabSelector';
 import { CoinLoader } from './CoinLoader';
 import { useTabs, TabPanel } from "react-headless-tabs"
 import ProgressBar from "./Progress-bar";
+import AppHeader from "../Header/AppHeader";
 
 const PrintGlobalDividends = ({data}) => (
     <React.Fragment>
@@ -296,14 +297,7 @@ const GodlDapp = () => {
     // UI
     return (
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-12">
-                    <a href="/" className="logo">
-                        <div className="logo__img"></div>
-                        <div className="logo__title">GODL Coin</div>
-                    </a>
-                </div>
-            </div>
+            <AppHeader />
 
             <div className="row">
                 <div className="offset-lg-3"></div>

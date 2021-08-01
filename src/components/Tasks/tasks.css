@@ -1,0 +1,33 @@
+.tasks .btn{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align:center;
+}
+
+.tasks p{
+    font-size: 14px;
+}
+.tasks h4{
+    text-align: center;
+}
+.card{
+    padding: 10px 20px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: rgb(33 35 74 / 17%) 0px 22px 48px -9px;
+    border: 1px solid rgb(232, 236, 253);    
+}
+
+.topText{
+    text-align: center;
+}
+.topText p{
+    font-size:14px;
+}
+
+.completed p{
+    font-weight: 600;
+    font-size: 16px;
+    color: #00b7ff;
+}

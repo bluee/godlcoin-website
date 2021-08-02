@@ -30,7 +30,7 @@ function Tasks() {
         <AppHeader />
         <div className="container">
 
-            <div className="card topText">
+            <div className="cardTask topText">
                 <h3>Tasks to boost your income</h3>
                 <p>
                 The tasks outlined below can significantly impact the (future) value of

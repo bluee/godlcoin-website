@@ -11,12 +11,13 @@
 .tasks h4{
     text-align: center;
 }
-.card{
+.cardTask{
     padding: 10px 20px;
     background: white;
     border-radius: 25px;
     box-shadow: rgb(33 35 74 / 17%) 0px 22px 48px -9px;
-    border: 1px solid rgb(232, 236, 253);    
+    border: 1px solid rgb(232, 236, 253); 
+    margin: 10px 0;       
 }
 
 .topText{

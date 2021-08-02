@@ -10,7 +10,7 @@ const DailyTaskCard = ({
 }) => (
   <div className="col-sm-12 col-lg-4" style={{ marginBottom: '30px',}}>
   <div
-    className="card"
+    className="cardTask"
     style={{
       position: 'relative',
       height: '100%',

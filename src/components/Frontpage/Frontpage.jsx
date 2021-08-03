@@ -76,22 +76,22 @@ class Frontpage extends Component {
 
                         <div className="Atom-orbit Atom-orbit--left Atom-orbit--foreground">
                           <div className="Atom-electron">
-                            <img alt="Polygon" src="https://polygon.technology/media-kit/matic-token-icon.svg" />                            
+                            <img alt="Polygon" src="img/matic-token-icon.svg" />                            
                           </div>
                         </div>
                         <div className="Atom-orbit Atom-orbit--right Atom-orbit--foreground">
                           <div className="Atom-electron">
-                            <img alt="ethereum" src="https://ethereum.org/static/655aaefb744ae2f9f818095a436d38b5/ed396/eth-diamond-purple-purple.png" />
+                            <img alt="ethereum" src="img/eth-diamond-purple-purple.png" />
                           </div>
                         </div>
                         <div className="Atom-orbit Atom-orbit--top Atom-orbit--foreground">
                           <div className="Atom-electron">
-                            <img alt="Binance"  src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png" />
+                            <img alt="Binance"  src="img/bnb_logo.png" />
                           </div>
                         </div>
                         <div className="Atom-orbit Atom-orbit--bottom Atom-orbit--foreground">
                           <div className="Atom-electron">
-                            <img alt="Shibarium" src="https://upload.wikimedia.org/wikipedia/en/5/53/Shiba_Inu_coin_logo.png" />
+                            <img alt="Shibarium" src="img/Shiba_Inu_coin_logo.png" />
                           </div>
                         </div>
 

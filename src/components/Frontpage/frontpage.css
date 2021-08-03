@@ -7668,3 +7668,137 @@ label.error {
       padding-top:250px
   }
 }
+
+/*********************************************************************************/
+.Atom {
+  width: 300px;
+  height: 250px;
+  position: relative;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.Atom-nucleus img{
+  width: 300px;
+  height: 300px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgb(29, 175, 211) 0px 18px 36px -18px inset;
+  border-radius: 50%;
+}
+
+.Atom-nucleus,
+.Atom-nucleus:before {
+  position: absolute;
+}
+
+ 
+.Atom-orbit {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: solid 4px transparent;
+  transform-style: preserve-3d;
+}
+
+
+.Atom-electron {
+  transform-style: preserve-3d;
+}
+
+.Atom-electron img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+
+
+@keyframes rotate-top {
+  0% {
+    transform: rotate(0deg) translate(-225px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(-225px) rotate(-360deg);
+  }
+}
+.Atom-orbit--top .Atom-electron {
+  -webkit-animation: rotate-top infinite linear;
+          animation: rotate-top infinite linear;
+  -webkit-animation-duration: 13s;
+          animation-duration: 13s;
+}
+.Atom-orbit--top .Atom-electron img {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(250, 209, 97, 0.3) 0px 18px 36px -18px inset;  
+}
+
+
+
+
+@keyframes rotate-bottom {
+  0% {
+    transform: rotate(0deg) translate(-225px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(-225px) rotate(-360deg);
+  }
+}
+.Atom-orbit--bottom .Atom-electron {
+  -webkit-animation: rotate-bottom infinite linear;
+          animation: rotate-bottom infinite linear;
+  -webkit-animation-duration: 33s;
+          animation-duration: 33s;
+}
+.Atom-orbit--bottom .Atom-electron img {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(250, 209, 97, 0.3) 0px 18px 36px -18px inset;  
+}
+
+
+
+@keyframes rotate-left {
+  0% {
+    transform: rotate(60deg) translate(-225px) rotate(-60deg);
+  }
+  100% {
+    transform: rotate(420deg) translate(-225px) rotate(-420deg);
+  }
+}
+.Atom-orbit--left .Atom-electron {
+  -webkit-animation: rotate-left infinite linear;
+          animation: rotate-left infinite linear;
+  -webkit-animation-duration: 21s;
+          animation-duration: 21s;
+}
+.Atom-orbit--left .Atom-electron img {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(88, 15, 208, 0.3) 0px 18px 36px -18px inset;
+}
+ 
+
+
+
+@keyframes rotate-right {
+  0% {
+    transform: rotate(120deg) translate(-225px) rotate(-120deg);
+  }
+  100% {
+    transform: rotate(480deg) translate(-225px) rotate(-480deg);
+  }
+}
+.Atom-orbit--right .Atom-electron {
+  -webkit-animation: rotate-right infinite linear;
+          animation: rotate-right infinite linear;
+  -webkit-animation-duration: 34s;
+          animation-duration: 34s;
+}
+.Atom-orbit--right .Atom-electron img {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+ }
+ 
+
+/*********************************************************************************/
+/*********************************************************************************/
+
+
+
+
+
+

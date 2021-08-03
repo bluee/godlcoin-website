@@ -40,11 +40,11 @@ class Frontpage extends Component {
               <br/><span data-aos="fade-up" data-aos-anchor="#main" data-aos-delay="300">
                Audit By  <Link href="#docs" to="docs" spy={true} smooth={true} duration={1000}>TechRate</Link>  & <a target="_blank" rel="noreferrer" href="https://tokensniffer.com/token/0x7f509465c38b66bdecec2cfdc842e11809cc8357">TokenSniffer</a>
               </span>
-
               </p>
+
             </div>
           </div>
-
+          
                   <div className="row">
                       <div className="col">
                           <div className="first-screen__btns-wrap" data-aos="fade-up" data-aos-anchor="#main" data-aos-delay="500">
@@ -62,12 +62,43 @@ class Frontpage extends Component {
                   </div>
   
                   <div className="row">
-                      <div className="col-lg-6 col-sm-6">
+                      {/* <div className="col-lg-6 col-sm-6">
                           <img src="img/eth-logo.png" data-aos="fade-left" data-aos-delay="600" alt="Ethereum logo" style={{width: '100%'}} />
                       </div>
                       <div className="col-lg-6 col-sm-6">
                           <img src="img/logo.png" data-aos="fade-left" data-aos-delay="600" alt="GODL dog logo" style={{width: '100%'}}  />
+                      </div> */}
+
+                      <div className="Atom">
+                        <div className="Atom-nucleus">
+                          <img alt="GODL logo" src="img/logo.png" />                          
+                        </div>
+
+                        <div className="Atom-orbit Atom-orbit--left Atom-orbit--foreground">
+                          <div className="Atom-electron">
+                            <img alt="Polygon" src="https://polygon.technology/media-kit/matic-token-icon.svg" />                            
+                          </div>
+                        </div>
+                        <div className="Atom-orbit Atom-orbit--right Atom-orbit--foreground">
+                          <div className="Atom-electron">
+                            <img alt="ethereum" src="https://ethereum.org/static/655aaefb744ae2f9f818095a436d38b5/ed396/eth-diamond-purple-purple.png" />
+                          </div>
+                        </div>
+                        <div className="Atom-orbit Atom-orbit--top Atom-orbit--foreground">
+                          <div className="Atom-electron">
+                            <img alt="Binance"  src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png" />
+                          </div>
+                        </div>
+                        <div className="Atom-orbit Atom-orbit--bottom Atom-orbit--foreground">
+                          <div className="Atom-electron">
+                            <img alt="Shibarium" src="https://upload.wikimedia.org/wikipedia/en/5/53/Shiba_Inu_coin_logo.png" />
+                          </div>
+                        </div>
+
+
                       </div>
+
+
                   </div>
   
         </div>
